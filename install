@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -eo pipefail; [[ $PLUSHU_TRACE ]] && set -x
+
+if [[ $EUID == 0 ]]; then
+  # TODO: Check expected pitfalls first
+  for plugin in git-hooking docker nginx \
+    git-receive-app buildstep config release-env start-web-deploy \
+    app-name-domain domains nginx-app-vhosts
+  do
+    plushu plugins:install "$plugin"
+  done
+else
+  echo "You need to re-install this plugin as root."
+fi
