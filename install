@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-set -eo pipefail; [[ $PLUSHU_TRACE ]] && set -x
+set -eo pipefail; [[ -n "$PLUSHU_TRACE" ]] && set -x
 
 if [[ $EUID == 0 ]]; then
   # TODO: Check expected pitfalls first
-  for plugin in git docker nginx git-apps \
+  for plugin in git docker nginx git-apps app-long-opt \
     buildstep config release-env start-web-deploy \
     app-name-domain domains nginx-app-vhosts
   do
