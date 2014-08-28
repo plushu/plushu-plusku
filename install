@@ -4,7 +4,7 @@ set -eo pipefail; [[ -n "$PLUSHU_TRACE" ]] && set -x
 if [[ "$EUID" == 0 ]]; then
   # TODO: Check expected pitfalls first
   for plugin in git docker app-long-opt apps config domains app-name-domain \
-    release-env start-web-deploy nginx-app-vhosts \
+    release-env start-web-deploy startup-deploy-all nginx-app-vhosts \
     buildstep nginx-container nginx-tuning git-apps
   do
     if [[ -d "$PLUSHU_ROOT/plugins/$plugin" ]]; then
