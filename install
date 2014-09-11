@@ -7,7 +7,7 @@ if [[ "$EUID" == 0 ]]; then
     domains app-name-domain release-env start-web-deploy startup-deploy-all \
     nginx-app-vhosts buildstep git-apps nginx-container nginx-tuning
   do
-    if [[ -d "$PLUSHU_PLUGINS_ROOT/plugins/$plugin" ]]; then
+    if [[ -d "$PLUSHU_PLUGINS_DIR/$plugin" ]]; then
       plushu plugins:reinstall "$plugin"
     else
       plushu plugins:install "$plugin"
