@@ -4,9 +4,10 @@ set -eo pipefail; [[ -n "$PLUSHU_TRACE" ]] && set -x
 if [[ "$EUID" == 0 ]]; then
   # TODO: Check expected pitfalls first
   for plugin in repos git docker app-long-opt apps app-repo-binding config \
-    domains app-name-domain release-env deploy-app-local-container \
-    startup-deploy-all nginx-app-vhosts git-apps nginx-container nginx-tuning \
-    services addons addons-docker buildpacks build-cedarish heroku-buildpacks
+    domains app-name-domain release-env meta-app-env cleanup-old-app-images \
+    deploy-app-local-container startup-deploy-all nginx-app-vhosts git-apps \
+    nginx-container nginx-tuning services addons addons-docker \
+    buildpacks build-cedarish heroku-buildpacks
   do
     if [[ -d "$PLUSHU_PLUGINS_DIR/$plugin" ]]; then
       "$PLUSHU_ROOT/lib/plushook" reinstall-plugin "$plugin" \
