@@ -6,9 +6,10 @@ if [[ "$EUID" == 0 ]]; then
   for plugin in repos git docker app-long-opt apps app-repo-binding config \
     domains app-name-domain release-app-profile meta-app-env \
     cleanup-old-app-images logs archive-logs docker-app-logs \
-    deploy-app-local-container startup-deploy-all nginx-app-vhosts git-apps \
-    nginx-container nginx-tuning services services-docker addons \
-    addons-docker buildpacks build-cedarish heroku-buildpacks
+    deploy-app-local-container restart-app-on-failure startup-deploy-all \
+    nginx-app-vhosts git-apps nginx-container nginx-tuning \
+    services services-docker addons addons-docker \
+    buildpacks build-cedarish heroku-buildpacks
   do
     if [[ -d "$PLUSHU_PLUGINS_DIR/$plugin" ]]; then
       "$PLUSHU_ROOT/lib/plushook" reinstall-plugin "$plugin" \
