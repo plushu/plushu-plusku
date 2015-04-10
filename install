@@ -5,7 +5,7 @@ if [[ "$EUID" == 0 ]]; then
   # TODO: Check expected pitfalls first
   for plugin in repos git docker app-long-opt apps app-repo-binding config \
     domains app-name-domain release-app-profile meta-app-env \
-    cleanup-old-app-images logs archive-logs docker-app-logs \
+    cleanup-old-app-images logs archive-logs app-docker-logs \
     deploy-app-local-container restart-app-on-failure startup-deploy-all \
     nginx-app-vhosts git-apps nginx-container nginx-tuning \
     services services-docker addons addons-docker \
