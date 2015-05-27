@@ -3,27 +3,18 @@ set -eo pipefail; [[ -n "$PLUSHU_TRACE" ]] && set -x
 
 if [[ "$EUID" == 0 ]]; then
   # TODO: Check expected pitfalls first
-  for plugin in repos git docker app-long-opt apps app-repo-binding config \
-    domains app-name-domain release-app-profile meta-app-env \
-    cleanup-old-app-images logs archive-logs app-docker-logs \
-    deploy-app-local-container restart-app-on-failure startup-deploy-all \
-    nginx-app-vhosts git-apps nginx-container nginx-tuning \
-    services services-docker addons addons-docker \
-    buildpacks build-cedarish heroku-buildpacks
-  do
+  while read plugin url; do
     if [[ -d "$PLUSHU_PLUGINS_DIR/$plugin" ]]; then
-      "$PLUSHU_ROOT/lib/plushook" reinstall-plugin "$plugin" \
-        "https://github.com/plushu/plushu-$plugin.git"
+      "$PLUSHU_ROOT/lib/plushook" reinstall-plugin "$plugin" "$url"
     else
-      "$PLUSHU_ROOT/lib/plushook" install-plugin "$plugin" \
-        "https://github.com/plushu/plushu-$plugin.git"
+      "$PLUSHU_ROOT/lib/plushook" install-plugin "$plugin" "$url"
       if [[ -d "$PLUSHU_PLUGINS_DIR/$plugin/profile.d" ]]; then
         for profile in "$PLUSHU_PLUGINS_DIR/$plugin/profile.d"/* ; do
           source "$profile"
         done
       fi
     fi
-  done
+  done < "$PLUSHU_PLUGIN_PATH/plugins.txt"
 else
   echo "You need to re-install this plugin as root."
 fi
