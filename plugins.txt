@@ -16,6 +16,8 @@ app-docker-logs https://github.com/plushu/plushu-app-docker-logs.git
 deploy-app-local-container https://github.com/plushu/plushu-deploy-app-local-container.git
 restart-app-on-failure https://github.com/plushu/plushu-restart-app-on-failure.git
 startup-deploy-all https://github.com/plushu/plushu-startup-deploy-all.git
+nginx-apps https://github.com/plushu/plushu-nginx-apps.git
+app-nginx-upstream-docker https://github.com/plushu/plushu-app-nginx-upstream-docker.git
 nginx-app-vhosts https://github.com/plushu/plushu-nginx-app-vhosts.git
 git-apps https://github.com/plushu/plushu-git-apps.git
 nginx-container https://github.com/plushu/plushu-nginx-container.git
