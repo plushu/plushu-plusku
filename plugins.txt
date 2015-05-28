@@ -18,7 +18,7 @@ restart-app-on-failure https://github.com/plushu/plushu-restart-app-on-failure.g
 startup-deploy-all https://github.com/plushu/plushu-startup-deploy-all.git
 nginx-apps https://github.com/plushu/plushu-nginx-apps.git
 app-nginx-upstream-docker https://github.com/plushu/plushu-app-nginx-upstream-docker.git
-nginx-app-vhosts https://github.com/plushu/plushu-nginx-app-vhosts.git
+app-nginx-servers https://github.com/plushu/plushu-app-nginx-servers.git
 git-apps https://github.com/plushu/plushu-git-apps.git
 nginx-container https://github.com/plushu/plushu-nginx-container.git
 nginx-tuning https://github.com/plushu/plushu-nginx-tuning.git
